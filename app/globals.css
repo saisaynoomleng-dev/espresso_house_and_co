@@ -1,5 +1,6 @@
-@import "tailwindcss";
-@import "tw-animate-css";
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@plugin "@tailwindcss/typography";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -112,11 +113,51 @@
   --sidebar-ring: oklch(0.556 0 0);
 }
 
+@theme {
+  /* colors */
+  --color-brand-black: #0a0908;
+  --color-brand-blue: #22333b;
+  --color-brand-cream: #eae0d5;
+  --color-brand-khaki: #c6ac8f;
+  --color-brand-brown: #5e503f;
+
+  /* typography */
+  /* font families */
+  --font-inter: var(--font-inter);
+  --font-sora: var(--font-sora);
+
+  /* font sizes */
+  --text-fs-900: 6rem;
+  --text-fs-800: 5.25rem;
+  --text-fs-700: 4.5rem;
+  --text-fs-600: 3.75rem;
+  --text-fs-500: 2.5rem;
+  --text-fs-400: 1.25rem;
+  --text-fs-300: 1rem;
+  --text-fs-200: 0.875rem;
+  --text-fs-100: 0.5rem;
+
+  /* breakpoint */
+  --breakpoint-lg: 1000px;
+  --breakpoint-md: 750px;
+  --breakpoint-sm: 560px;
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-brand-cream font-inter leading-normal tracking-normal overflow-x-hidden text-brand-black;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    @apply text-balance leading-none;
+  }
+  p {
+    @apply text-pretty;
   }
 }
