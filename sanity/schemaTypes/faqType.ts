@@ -14,6 +14,14 @@ export const faqType = defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
+      name: 'slug',
+      title: 'slug',
+      type: 'slug',
+      options: {
+        source: 'question',
+      },
+    }),
+    defineField({
       name: 'answer',
       title: 'Answer',
       type: 'text',
