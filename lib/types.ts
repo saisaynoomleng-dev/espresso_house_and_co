@@ -19,3 +19,9 @@ export type ProductTypeProps = NonNullable<ALL_PRODUCTS_QUERYResult>[number] & {
 export type BlogCardProps = NonNullable<ALL_BLOGS_QUERYResult>[number] & {
   className?: string;
 };
+
+// Newsletter Form Props
+export type NewsletterPreviousState = {
+  status: string;
+  message: string;
+};
