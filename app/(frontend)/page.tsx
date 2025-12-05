@@ -1,18 +1,14 @@
+import BlogCard from '@/components/BlogCard';
+import Bounded from '@/components/Bounded';
+import FAQs from '@/components/FAQs';
 import { Button } from '@/components/ui/button';
 import { sanityFetch } from '@/sanity/lib/live';
+import { ALL_BLOGS_QUERY } from '@/sanity/lib/queries';
 
 export default async function Home() {
-  // const { data: products } = await sanityFetch({ query: ALL_PRODUCTS_QUERY });
-
   return (
-    <div>
+    <Bounded>
       <Button>Click Me</Button>
-
-      <div>
-        {/* {products.map((product) => (
-          <ProductCard key={product.slug}
-        ))} */}
-      </div>
-    </div>
+    </Bounded>
   );
 }

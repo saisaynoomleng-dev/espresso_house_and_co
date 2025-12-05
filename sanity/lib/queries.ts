@@ -51,7 +51,8 @@ export const BLOG_QUERY = defineQuery(`*[_type == 'blog'
 
 export const ALL_FAQS_QUERY = defineQuery(`*[_type == 'faq']{
  question,
-  answer
+  answer,
+  slug
  }`);
 
 export const ALL_PRODUCTS_QUERY = defineQuery(`*[_type == 'product'
