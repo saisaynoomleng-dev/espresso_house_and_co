@@ -22,7 +22,7 @@ const Header = () => {
   const [navOpen, setNavOpen] = useState<boolean>(false);
 
   return (
-    <header className="max-w-[1200px] mx-auto py-2 md:py-4 px-3 font-sora relative h-12 md:h-20">
+    <header className="max-w-[1200px] lg:mx-auto py-2 md:py-4 px-3 md:px-5 lg:px-0 font-sora relative h-12 md:h-20">
       {/* desktop nav */}
       <div className="hidden md:grid grid-cols-[1fr_200px_1fr] items-center">
         <nav
@@ -46,7 +46,7 @@ const Header = () => {
 
         <div className="place-self-center">
           <Link href="/">
-            <Image src="/logo.png" width={100} height={50} alt="" />
+            <Image src="/logo.svg" width={100} height={50} alt="" />
           </Link>
         </div>
 
@@ -71,7 +71,7 @@ const Header = () => {
       <div className="flex justify-between items-center md:hidden h-[5vh]">
         <div className="relative z-50">
           <Link href="/">
-            <Image src="/logo.png" width={100} height={50} alt="" />
+            <Image src="/logo.svg" width={100} height={50} alt="" />
           </Link>
         </div>
 
