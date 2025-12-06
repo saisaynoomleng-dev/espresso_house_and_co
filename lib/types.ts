@@ -1,6 +1,7 @@
 import {
   ALL_BLOGS_QUERYResult,
   ALL_PRODUCTS_QUERYResult,
+  ALL_TEAM_MEMBERS_QUERYResult,
 } from '@/sanity/types';
 
 // Bounded Props
@@ -32,3 +33,9 @@ export type CTAProps = {
   children: React.ReactNode;
   url: string;
 };
+
+// Member Card Props
+export type MemberCardProps =
+  NonNullable<ALL_TEAM_MEMBERS_QUERYResult>[number] & {
+    className?: string;
+  };

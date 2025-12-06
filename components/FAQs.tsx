@@ -12,26 +12,29 @@ const FAQs = async ({ className }: { className?: string }) => {
   const { data: faqs } = await sanityFetch({ query: ALL_FAQS_QUERY });
 
   return (
-    <div className={clsx('grid md:grid-cols-2 gap-3', className)}>
+    <div className={clsx('', className)}>
       <h2 className="md:text-fs-500 font-sora col-span-full">
         Frequently Asked Questions
       </h2>
 
-      {faqs.map((faq) => (
-        <Accordion
-          key={faq?.slug?.current}
-          collapsible
-          type="single"
-          className="w-full "
-        >
-          <AccordionItem value={faq.slug?.current as string}>
+      <Accordion
+        type="single"
+        collapsible
+        className="w-full grid md:grid-cols-2 gap-3"
+      >
+        {faqs.map((faq) => (
+          <AccordionItem
+            key={faq.slug?.current}
+            value={faq.slug?.current as string}
+            className="border-b border-brand-black/10"
+          >
             <AccordionTrigger className="font-sora">
               {faq.question}
             </AccordionTrigger>
             <AccordionContent>{faq.answer}</AccordionContent>
           </AccordionItem>
-        </Accordion>
-      ))}
+        ))}
+      </Accordion>
     </div>
   );
 };
