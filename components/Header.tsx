@@ -22,7 +22,7 @@ const Header = () => {
   const [navOpen, setNavOpen] = useState<boolean>(false);
 
   return (
-    <header className="max-w-[1200px] lg:mx-auto py-2 md:py-4 px-3 md:px-5 lg:px-0 font-sora relative h-12 md:h-20">
+    <header className="max-w-[1200px] lg:mx-auto py-2 md:py-4 px-3 md:px-5 lg:px-2 font-sora relative h-12 md:h-20 z-50 ">
       {/* desktop nav */}
       <div className="hidden md:grid grid-cols-[1fr_200px_1fr] items-center">
         <nav
@@ -102,7 +102,7 @@ const Header = () => {
               role="navigation"
               aria-label="Main Menu"
               className={clsx(
-                'flex flex-col fixed inset-0 top-12 bg-brand-cream gap-y-5 items-center bottom-[55vh] px-2 border-y border-brand-black/20 py-3 transition-all duration-400',
+                'flex flex-col fixed inset-0 top-12 bg-brand-cream gap-y-5 items-center bottom-[55vh] px-2 border-y border-brand-black/20 py-3 transition-all duration-400 shadow-2xl',
                 navOpen ? 'translate-x-0' : 'translate-x-full',
               )}
             >

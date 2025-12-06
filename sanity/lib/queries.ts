@@ -64,6 +64,10 @@ export const ALL_PRODUCTS_QUERY = defineQuery(`*[_type == 'product'
   mainImage{
     alt,
     asset->{url}
+  },
+  _createdAt,
+  review->[]{
+    rating
   }
  }`);
 
@@ -80,5 +84,5 @@ export const RRODUCT_QUERY = defineQuery(`*[_type == 'product'
   subtitle,
   category,
   desc,
-  review
+  review->[]
  }`);
