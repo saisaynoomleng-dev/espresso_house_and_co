@@ -421,7 +421,7 @@ export type ALL_FAQS_QUERYResult = Array<{
   slug: Slug | null;
 }>;
 // Variable: ALL_PRODUCTS_QUERY
-// Query: *[_type == 'product' && defined(slug.current)]{  name,  slug,  price,  discount,  mainImage{    alt,    asset->{url}  } }
+// Query: *[_type == 'product' && defined(slug.current)]{  name,  slug,  price,  discount,  mainImage{    alt,    asset->{url}  },  _createdAt,  review->[]{    rating  } }
 export type ALL_PRODUCTS_QUERYResult = Array<{
   name: string | null;
   slug: Slug | null;
@@ -433,9 +433,13 @@ export type ALL_PRODUCTS_QUERYResult = Array<{
       url: string | null;
     } | null;
   } | null;
+  _createdAt: string;
+  review: Array<{
+    rating: number | null;
+  }> | null;
 }>;
 // Variable: RRODUCT_QUERY
-// Query: *[_type == 'product' && slug.current == $slug]{  name,  slug,  price,  discount,  mainImage{    alt,    asset->{url}  },  subtitle,  category,  desc,  review }
+// Query: *[_type == 'product' && slug.current == $slug]{  name,  slug,  price,  discount,  mainImage{    alt,    asset->{url}  },  subtitle,  category,  desc,  review->[] }
 export type RRODUCT_QUERYResult = Array<{
   name: string | null;
   slug: Slug | null;
@@ -456,11 +460,15 @@ export type RRODUCT_QUERYResult = Array<{
   } | null;
   desc: BlockContent | null;
   review: Array<{
-    _ref: string;
-    _type: 'reference';
-    _weak?: boolean;
-    _key: string;
-    [internalGroqTypeReferenceTo]?: 'review';
+    _id: string;
+    _type: 'review';
+    _createdAt: string;
+    _updatedAt: string;
+    _rev: string;
+    name?: string;
+    mainImage?: BlockImage;
+    desc?: string;
+    rating?: number;
   }> | null;
 }>;
 
@@ -473,7 +481,7 @@ declare module '@sanity/client' {
     "*[_type == 'blog'\n && defined(slug.current)]\n|order(publishedAt){\n  title,\n  slug,\n  publishedAt,\n  mainImage{\n    alt,\n    asset->{url}\n  }\n }": ALL_BLOGS_QUERYResult;
     "*[_type == 'blog'\n && slug.current == $slug]\n|order(publishedAt){\n  title,\n  slug,\n  publishedAt,\n  mainImage{\n    alt,\n    asset->{url}\n  },\n  desc,\n  duration\n }": BLOG_QUERYResult;
     "*[_type == 'faq']{\n question,\n  answer,\n  slug\n }": ALL_FAQS_QUERYResult;
-    "*[_type == 'product'\n && defined(slug.current)]{\n  name,\n  slug,\n  price,\n  discount,\n  mainImage{\n    alt,\n    asset->{url}\n  }\n }": ALL_PRODUCTS_QUERYResult;
-    "*[_type == 'product'\n && slug.current == $slug]{\n  name,\n  slug,\n  price,\n  discount,\n  mainImage{\n    alt,\n    asset->{url}\n  },\n  subtitle,\n  category,\n  desc,\n  review\n }": RRODUCT_QUERYResult;
+    "*[_type == 'product'\n && defined(slug.current)]{\n  name,\n  slug,\n  price,\n  discount,\n  mainImage{\n    alt,\n    asset->{url}\n  },\n  _createdAt,\n  review->[]{\n    rating\n  }\n }": ALL_PRODUCTS_QUERYResult;
+    "*[_type == 'product'\n && slug.current == $slug]{\n  name,\n  slug,\n  price,\n  discount,\n  mainImage{\n    alt,\n    asset->{url}\n  },\n  subtitle,\n  category,\n  desc,\n  review->[]\n }": RRODUCT_QUERYResult;
   }
 }

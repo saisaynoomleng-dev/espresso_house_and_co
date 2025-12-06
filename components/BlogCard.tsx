@@ -12,7 +12,10 @@ const BlogCard = ({ className, ...props }: BlogCardProps) => {
   return (
     <Link
       href={`/blog/${slug?.current}`}
-      className={clsx('flex flex-col  group w-[300px] md:w-[400px]', className)}
+      className={clsx(
+        'flex flex-col group max-w-[300px] md:max-w-[400px]',
+        className,
+      )}
     >
       <div className="overflow-hidden">
         {imageURL ? (

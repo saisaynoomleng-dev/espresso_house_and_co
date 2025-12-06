@@ -15,19 +15,18 @@ const ProductCard = ({ className, ...props }: ProductTypeProps) => {
         className,
       )}
     >
-      <div className="overflow-hidden bg-brand-khaki/50">
+      <div className="overflow-hidden relative bg-brand-khaki/50 h-[200px] p-5">
         {mainImage?.asset?.url ? (
           <Image
             src={urlFor(mainImage.asset.url)
               .auto('format')
               .format('webp')
               .url()}
-            width={150}
-            height={250}
+            fill={true}
             priority
             loading="eager"
             alt={mainImage.alt as string}
-            className="min-w-fit mx-auto group-hover:scale-[1.1]"
+            className="object-contain h-fit group-hover:scale-[1.1]"
           />
         ) : null}
       </div>

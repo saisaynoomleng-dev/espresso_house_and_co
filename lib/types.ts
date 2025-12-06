@@ -25,3 +25,10 @@ export type NewsletterPreviousState = {
   status: string;
   message: string;
 };
+
+// CTA props
+export type CTAProps = {
+  className?: string;
+  children: React.ReactNode;
+  url: string;
+};

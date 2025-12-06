@@ -120,6 +120,7 @@
   --color-brand-cream: #eae0d5;
   --color-brand-khaki: #c6ac8f;
   --color-brand-brown: #5e503f;
+  --color-brand-white: #f2f2f2;
 
   /* typography */
   /* font families */
@@ -141,6 +142,15 @@
   --breakpoint-lg: 1000px;
   --breakpoint-md: 750px;
   --breakpoint-sm: 560px;
+
+  /* spinner */
+  --animate-spinner: spinner 10s linear infinite;
+
+  @keyframes spinner {
+    100% {
+      transform: rotate(360deg);
+    }
+  }
 }
 
 @layer base {
@@ -148,7 +158,7 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-brand-cream font-inter leading-normal tracking-normal overflow-x-hidden text-brand-black;
+    @apply bg-brand-cream font-inter leading-normal tracking-normal overflow-x-hidden text-brand-black text-fs-300;
   }
   h1,
   h2,
