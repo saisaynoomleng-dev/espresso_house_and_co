@@ -1,5 +1,6 @@
 import {
   ALL_BLOGS_QUERYResult,
+  ALL_MENU_ITEMS_QUERYResult,
   ALL_PRODUCTS_QUERYResult,
   ALL_TEAM_MEMBERS_QUERYResult,
 } from '@/sanity/types';
@@ -39,3 +40,8 @@ export type MemberCardProps =
   NonNullable<ALL_TEAM_MEMBERS_QUERYResult>[number] & {
     className?: string;
   };
+
+// Menu Card
+export type MenuCardProps = NonNullable<ALL_MENU_ITEMS_QUERYResult>[number] & {
+  className?: string;
+};
