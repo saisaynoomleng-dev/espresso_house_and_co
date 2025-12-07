@@ -175,3 +175,7 @@
 @utility divider {
   @apply w-full h-px;
 }
+
+@utility formLabel {
+  @apply after:absolute after:content-['*'] after:ml-0.5 after:text-red-500;
+}

@@ -8,7 +8,7 @@ export const contactType = defineType({
   type: 'document',
   fields: [
     defineField({
-      name: 'name',
+      name: 'fullName',
       title: 'Full Name',
       type: 'string',
       validation: (rule) => rule.required(),
