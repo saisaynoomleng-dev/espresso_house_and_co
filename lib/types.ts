@@ -45,3 +45,11 @@ export type MemberCardProps =
 export type MenuCardProps = NonNullable<ALL_MENU_ITEMS_QUERYResult>[number] & {
   className?: string;
 };
+
+// contact form state props
+export type ContactFormStateProps = {
+  status: string;
+  message?: string;
+  field?: string;
+  errors?: { field: string; message: string }[];
+};
