@@ -13,7 +13,7 @@ const BlogCard = ({ className, ...props }: BlogCardProps) => {
     <Link
       href={`/blog/${slug?.current}`}
       className={clsx(
-        'flex flex-col group max-w-[300px] md:max-w-[400px]',
+        'flex flex-col group gap-y-1 md:gap-y-2 max-w-[300px] md:max-w-[400px] shadow p-2',
         className,
       )}
     >
