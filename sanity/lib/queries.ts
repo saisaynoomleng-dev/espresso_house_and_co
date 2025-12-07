@@ -36,8 +36,7 @@ export const ALL_BLOGS_QUERY = defineQuery(`*[_type == 'blog'
  }`);
 
 export const BLOG_QUERY = defineQuery(`*[_type == 'blog'
- && slug.current == $slug]
-|order(publishedAt){
+ && slug.current == $slug][0]{
   title,
   slug,
   publishedAt,

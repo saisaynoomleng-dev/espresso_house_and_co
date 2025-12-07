@@ -399,8 +399,8 @@ export type ALL_BLOGS_QUERYResult = Array<{
   } | null;
 }>;
 // Variable: BLOG_QUERY
-// Query: *[_type == 'blog' && slug.current == $slug]|order(publishedAt){  title,  slug,  publishedAt,  mainImage{    alt,    asset->{url}  },  desc,  duration }
-export type BLOG_QUERYResult = Array<{
+// Query: *[_type == 'blog' && slug.current == $slug][0]{  title,  slug,  publishedAt,  mainImage{    alt,    asset->{url}  },  desc,  duration }
+export type BLOG_QUERYResult = {
   title: string | null;
   slug: Slug | null;
   publishedAt: string | null;
@@ -412,7 +412,7 @@ export type BLOG_QUERYResult = Array<{
   } | null;
   desc: BlockContent | null;
   duration: string | null;
-}>;
+} | null;
 // Variable: ALL_FAQS_QUERY
 // Query: *[_type == 'faq']{ question,  answer,  slug }
 export type ALL_FAQS_QUERYResult = Array<{
@@ -479,7 +479,7 @@ declare module '@sanity/client' {
     "*[_type == 'teamMember'\n && defined(slug.current)]{\n  name,\n  slug,\n  role,\n  mainImage{\n    alt,\n    asset->{url}\n  }\n }": ALL_TEAM_MEMBERS_QUERYResult;
     "*[_type == 'menu'\n && defined(slug.current)]{\n  name,\n  slug,\n  price,\n  ingredients,\n  mainImage{\n    alt,\n    asset->{url}\n  }\n }": ALL_MENU_ITEMS_QUERYResult;
     "*[_type == 'blog'\n && defined(slug.current)]\n|order(publishedAt){\n  title,\n  slug,\n  publishedAt,\n  mainImage{\n    alt,\n    asset->{url}\n  }\n }": ALL_BLOGS_QUERYResult;
-    "*[_type == 'blog'\n && slug.current == $slug]\n|order(publishedAt){\n  title,\n  slug,\n  publishedAt,\n  mainImage{\n    alt,\n    asset->{url}\n  },\n  desc,\n  duration\n }": BLOG_QUERYResult;
+    "*[_type == 'blog'\n && slug.current == $slug][0]{\n  title,\n  slug,\n  publishedAt,\n  mainImage{\n    alt,\n    asset->{url}\n  },\n  desc,\n  duration\n }": BLOG_QUERYResult;
     "*[_type == 'faq']{\n question,\n  answer,\n  slug\n }": ALL_FAQS_QUERYResult;
     "*[_type == 'product'\n && defined(slug.current)]{\n  name,\n  slug,\n  price,\n  discount,\n  mainImage{\n    alt,\n    asset->{url}\n  },\n  _createdAt,\n  review->[]{\n    rating\n  }\n }": ALL_PRODUCTS_QUERYResult;
     "*[_type == 'product'\n && slug.current == $slug]{\n  name,\n  slug,\n  price,\n  discount,\n  mainImage{\n    alt,\n    asset->{url}\n  },\n  subtitle,\n  category,\n  desc,\n  review->[]\n }": RRODUCT_QUERYResult;
